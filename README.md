@@ -1,5 +1,5 @@
 # Jake's FreeCodeCamp-Front-End-Development-Libraries Projects
-A repository to host the projects I have created to complete FreeCodeCamp's 'Front End Development Libraries' Certification.
+A repository to host my FreeCodeCamp 'Front End Development Libraries' projects and Certification.
 
 GitHub Pages Link (for my reference): https://jake2020.github.io/FreeCodeCamp-Front-End-Development-Libraries/
 

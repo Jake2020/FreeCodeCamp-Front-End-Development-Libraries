@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>FreeCodeCamp Project - Random Quote Machine</title>
+
+  <!-- CSS -->  
+  <style>
+    
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f8f8f8;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+    }
+
+    h1 {
+      color: #333;
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    #quote-box {
+      background-color: #f5f2f4;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    #text {
+      font-size: 25px;
+      font-weight: bold;
+    }
+
+    #author {
+      font-style: italic;
+    }
+
+    #new-quote, #tweet-quote {
+      margin-top: 10px;
+    }
+
+  </style>
+
+</head>
+<body>
+
+  <!-- HTML -->
+
+  <!-- Title -->
+  <h1>Jake's FreeCodeCamp Project</h1>
+  <h1>Random Alan Watts Quote Machine</h1>
+
+  <!-- Quote Div -->
+  <div id="quote-box">
+    <p id="text"></p>
+    <p id="author"></p>
+    <button id="new-quote" onClick="quote();">New Quote</button>
+    <a href="#" id="tweet-quote">Tweet Quote</a>
+  </div>
+
+  <!-- JS Scripts -->
+
+  <!-- FCC Tests -->
+  <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+
+  <!-- My Scripts -->
+  <script>
+
+    // Quotes
+    const QUOTES = [
+        {
+            quote: "I owe my solitude to other people.",
+            author: "Alan Watts"
+        },
+        {
+            quote: "Technology is destructive only in the hands of people who do not realize that they are one and the same process as the universe.",
+            author: "Alan Watts"
+        },
+        {
+            quote: "Trying to define yourself is like trying to bite your own teeth.",
+            author: "Alan Watts"
+        },
+        {
+            quote: "But I'll tell you what hermits realize. If you go off into a far, far forest and get very quiet, you'll come to understand that you're connected with everything.",
+            author: "Alan Watts"
+        },
+        {
+            quote: "Zen does not confuse spirituality with thinking about God while one is peeling potatoes. Zen spirituality is just to peel the potatoes.",
+            author: "Alan Watts"
+        },
+    ];
+
+    // Generate random quote
+    function quote() {
+
+        // Generate a random number to be used to select a quote by random index
+        let randomQuoteIndex = Math.floor(Math.random() * QUOTES.length); 
+
+        // Update quote and author on page
+        document.getElementById("text").innerText = QUOTES[randomQuoteIndex].quote;
+        document.getElementById("author").innerText = QUOTES[randomQuoteIndex].author;
+
+        // Get the selected quote and author to tweet
+        const tweetQuote = QUOTES[randomQuoteIndex].quote;
+        const tweetAuthor = QUOTES[randomQuoteIndex].author;
+
+        // Construct tweet URL with the tweet quote and author
+        const tweetUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(
+            `"${tweetQuote}" - ${tweetAuthor}`
+        )}`;
+
+        // Update href attribute of the "Tweet Quote" link
+        document.getElementById("tweet-quote").setAttribute("href", tweetUrl);
+
+        // Change background color upon refresh or "new quote" click
+        const randomColor = getRandomColor();
+        document.body.style.backgroundColor = randomColor;
+    }
+
+    // Generate a random color from the given hex codes
+    function getRandomColor() {
+    const hexCodes = ["#fcba03", "#3dfc03", "#03ecfc", "#c203fc", "#fc0388"];
+    const randomIndex = Math.floor(Math.random() * hexCodes.length);
+    return hexCodes[randomIndex];
+    }
+
+    // Once page loaded run function in 2nd argument
+    document.addEventListener("DOMContentLoaded", quote);
+  </script>
+
+</body>
+</html>

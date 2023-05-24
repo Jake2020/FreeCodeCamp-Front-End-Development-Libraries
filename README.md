@@ -1,8 +1,12 @@
 # Jake's FreeCodeCamp-Front-End-Development-Libraries Projects
-A repository to host the projects I created to complete FreeCodeCamp's 'Front End Development Libraries' Certification.
+A repository to host the projects I have created to complete FreeCodeCamp's 'Front End Development Libraries' Certification.
 
-## Project 1: [Random Quote Generator](https://jake2020.github.io/RandomQuoteMachine.html)
-Demonstrates using HTML, CSS, and JavScript to create a simple webpage that generates a new random quote upon refresh or on click of the "New Quote" button. Also includes functionality to tweet the displayed quote and change page background colour with each new quote.
+GitHub Pages Link (for my reference): https://jake2020.github.io/FreeCodeCamp-Front-End-Development-Libraries/
+
+## Project 1: [Random Quote Generator](https://jake2020.github.io/FreeCodeCamp-Front-End-Development-Libraries/RandomQuoteMachine.html)
+A simple web page to demonstrates using HTML, CSS, and JavScript to generates a random quote upon each refresh or click of the "New Quote" button. Also includes functionality to tweet the displayed quote and change page background colour with each new quote.
+
+*Note: There's only 5 quotes and 5 background colours, so it's possible for either the background, the quote, or neither, to appear to have changed due to the same quote/colour/both being selected again.*
 
 Requirements:
 

@@ -1,4 +1,4 @@
-# Jake's FreeCodeCamp-Front-End-Development-Libraries Projects
+# Jake's FreeCodeCamp Front-End Development Libraries Projects
 A repository to host my FreeCodeCamp 'Front End Development Libraries' projects and Certification.
 
 Each project has been hosted on GitHub Pages as a simple responsive webpage made up of HTML, CSS, JavaScript, and Bootstrap, so the user can test and interact with the code.

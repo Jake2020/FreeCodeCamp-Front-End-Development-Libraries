@@ -9,8 +9,9 @@
 
     <style>
 
-        #display {
+        #display-container {
             border-radius: 5px;
+            height: 65px;
         }
 
         #calculator {
@@ -30,16 +31,19 @@
     <!-- Header Row -->
     <div class="row text-center">
         <div class="col">
-            <h1>Jake's JavaScript Calculator</h1>
+            <h1>Jake's JavaScript Calculator (Work in progress - Partially functional)</h1>
         </div>
     </div>
 
     <div class="container-fluid" id="calculator">
 
         <!-- Display Row -->
-        <div class="row text-center">
-            <div class="col">
-                <div class="col-12 bg-info py-4 my-2" id="display">Display: </div>
+        <div class="row bg-info mx-1 py-2" id="display-container">
+            <div class="row">
+                <div class="col-12 text-end" id="input"></div>
+            </div>
+            <div class="row">
+                <div class="col-12 text-end" id="display">0</div>
             </div>
         </div>
 
@@ -125,6 +129,84 @@
 
     <!-- Functionality Scripts -->
     <script>
+
+        document.addEventListener("DOMContentLoaded", function() {
+
+            // Initilize input & results strings & equalsPressed
+            var inputString = "";
+            var resultString = "";
+            var equalsPressed = false;
+
+            // Get buttons
+            var buttons = document.querySelectorAll("button");
+
+            // Add click event listeners to the buttons
+            buttons.forEach(function(button) {
+                button.addEventListener("click", function() {
+                    var buttonText = button.innerText;
+
+                    // Reset after '=' pressed
+                    if(equalsPressed) {
+                        
+                        // If followed by operator:
+                        // Continue from last result
+                        if (buttonText === "+" || buttonText === "-" || buttonText === "*" || buttonText === "/") {
+                            inputString = resultString + " ";
+                            resultString = "";
+                            input.innerText = inputString;
+                            display.innerText = resultString;
+
+                        // If followed by number:
+                        // Start a new calc    
+                        } else if(!isNaN(buttonText)) {
+                            inputString = "";
+                            resultString = "";
+                            input.innerText = inputString;
+                            display.innerText = resultString;
+                        }
+
+                        equalsPressed = false;
+                    }
+
+                    // If number button pressed:
+                    // Add button value to strings
+                    if (!isNaN(buttonText)) {
+                        inputString += buttonText;
+                        resultString += buttonText;
+                    }
+                    // If operator button pressed:
+                    // Add button value to inputString & reset resultString
+                    else if (buttonText === "+" || buttonText === "-" || buttonText === "*" || buttonText === "/") {
+                        inputString += " " + buttonText + " ";
+                        resultString = "";
+                    }
+                    
+                    // If equals button pressed:
+                    // Calc result
+                    else if (buttonText === "=") {
+                        resultString = eval(inputString);
+                        equalsPressed = true;
+                    }
+
+                    // If clear button pressed:
+                    // Clear strings & reset
+                    else if (buttonText === "AC") {
+                        inputString = "";
+                        resultString = "";
+                    }
+
+                    // Update the input element
+                    input.innerText = inputString;
+                    display.innerText = resultString;
+
+                    // Reset screen after 'AC' press & values updated
+                    if(resultString === "") {
+                        display.innerText = 0
+                    }
+                    
+                });
+            });
+        });
 
     </script>
 

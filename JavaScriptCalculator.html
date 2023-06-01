@@ -171,13 +171,61 @@
                     // If number button pressed:
                     // Add button value to strings
                     if (!isNaN(buttonText)) {
-                        inputString += buttonText;
-                        resultString += buttonText;
+
+                        // If input string is "0" & next button pressed is 0:
+                        // Overwrite with "0" to ignore multiple 0's
+                        if (inputString === "0") {
+                            inputString = buttonText;
+                            resultString = buttonText;
+
+                        // If input string has multiple segments:
+                        } else {
+                            // Get the last number segment
+                            const lastSegment = inputString.split(" ").pop();
+
+                            // If "0":
+                            // Ignore input
+                            if (lastSegment === "0") {
+                                // Do nothing
+
+                            // Otherwise add input to end of string
+                            } else {
+                                inputString += buttonText;
+                                resultString += buttonText;
+                            }
+                        }
                     }
+
+                    // If "." pressed:
+                    // Add to end of current string if last segment does not already contain a "."
+                    else if (buttonText === ".") {
+                        const lastSegment = inputString.split(" ").pop();
+                        if (!lastSegment.includes(".")) {
+                            inputString += buttonText;
+                            resultString += buttonText;
+                        }
+                    }
+
                     // If operator button pressed:
                     // Add button value to inputString & reset resultString
                     else if (buttonText === "+" || buttonText === "-" || buttonText === "*" || buttonText === "/") {
-                        inputString += " " + buttonText + " ";
+                        const lastChar = inputString.trim().split(" ").pop();
+                        console.log("lastChar: " + lastChar);
+                        console.log("inputStr: " + inputString);
+                        if (lastChar === "+" || lastChar === "*" || lastChar === "/") {
+                            // Replace the last operator with the new one
+                            console.log("inputStrBefore: " + inputString);
+                            inputString = inputString.slice(0, -2) + buttonText + " ";
+                            console.log("inputStrafter: " + inputString);
+                        } else {
+                            if (lastChar === "-") {
+                                inputString = inputString.slice(0, -1) + buttonText + " -";
+                            } else {
+                                inputString += " " + buttonText + " ";
+                            }
+                        }
+
+                        // Reset results string to reset display
                         resultString = "";
                     }
                     

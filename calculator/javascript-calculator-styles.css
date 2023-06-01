@@ -1,0 +1,14 @@
+/* javascript-calculator-styles.css */
+
+#display-container {
+    border-radius: 5px;
+    height: 65px;
+}
+
+#calculator {
+    width: 75vw;
+}
+
+#equals {
+    height: calc((2 * 100%) + 8px);
+}

@@ -10,7 +10,7 @@ GitHub Pages Link (for my reference): https://jake2020.github.io/FreeCodeCamp-Fr
 1. [Random Quote Generator](https://jake2020.github.io/FreeCodeCamp-Front-End-Development-Libraries/RandomQuoteMachine.html)
 2. [Markdown Previewer](https://jake2020.github.io/FreeCodeCamp-Front-End-Development-Libraries/MarkdownPreviewer.html)
 3. [Drum Machine](https://jake2020.github.io/FreeCodeCamp-Front-End-Development-Libraries/DrumMachine.html)
-4. [JavaScript Calculator](https://jake2020.github.io/FreeCodeCamp-Front-End-Development-Libraries/JavaScriptCalculator.html)
+4. [JavaScript Calculator](https://jake2020.github.io/FreeCodeCamp-Front-End-Development-Libraries/calculator/javascript-calculator.html)
 5. Coming Soon
 
 ## Project 1: [Random Quote Generator](https://jake2020.github.io/FreeCodeCamp-Front-End-Development-Libraries/RandomQuoteMachine.html)
@@ -94,7 +94,7 @@ User Story #6: When I press the trigger key associated with each .drum-pad, the 
 
 User Story #7: When a .drum-pad is triggered, a string describing the associated audio clip is displayed as the inner text of the #display element (each string must be unique).
 
-## Project 4: [JavaScript Calculator](https://jake2020.github.io/FreeCodeCamp-Front-End-Development-Libraries/JavaScriptCalculator.html)
+## Project 4: [JavaScript Calculator](https://jake2020.github.io/FreeCodeCamp-Front-End-Development-Libraries/calculator/javascript-calculator.html)
 
 A simple web page that allows the user to interact with a JavaScript Calculator.
 
